@@ -1,0 +1,38 @@
+# Define menu items and their prices
+menu = {
+    "burger": 5.99,
+    "fries": 2.49,
+    "pizza": 8.99,
+    "soda": 1.99,
+    "salad": 6.49
+}
+
+# Function to display the menu
+def display_menu():
+    print("Menu:")
+    for item, price in menu.items():
+        print(f"{item.capitalize()}: ${price}")
+
+# Function to calculate the total bill
+def calculate_bill(items):
+    total = 0
+    for item in items:
+        if item in menu:
+            total += menu[item]
+        else:
+            print(f"Sorry, {item} is not on the menu.")
+    return total
+
+# Main function
+def main():
+    print("Welcome to the Food Court!")
+    display_menu()
+
+    # Get items from the user
+    items = input("Enter the items you'd like to purchase (comma-separated): ").strip().split(",")
+
+    # Calculate the total bill
+    total_bill = calculate_bill(items)
+
+    # Display the total bill
+    print(f"Your total bill is: ${total_bill:.2f}")
